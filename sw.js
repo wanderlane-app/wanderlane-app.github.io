@@ -1,5 +1,5 @@
 /* Wanderlane: работа без интернета */
-const V="wl-202611112230";
+const V="wl-202611112301";
 const CORE=["./","index.html","lucide.min.js","manifest.webmanifest","logo.svg","icons/icon-192.png","icons/icon-512.png","icons/maskable-512.png","icons/apple-touch-icon.png","icons/favicon-32.png","fonts/Fraunces-600.woff2","fonts/IBMPlexMono-Bold.woff","fonts/IBMPlexMono-Regular.woff","fonts/Lora-Bold.woff","fonts/Lora-Italic.woff","fonts/Lora-Regular.woff"];
 self.addEventListener("install",e=>{ e.waitUntil(caches.open(V).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())); });
 self.addEventListener("activate",e=>{ e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V).map(k=>caches.delete(k)))).then(()=>self.clients.claim())); });
